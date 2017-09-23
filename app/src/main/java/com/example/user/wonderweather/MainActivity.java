@@ -23,7 +23,6 @@ import io.nlopez.smartlocation.SmartLocation;
 
 public class MainActivity extends AppCompatActivity {
 
-
     private TextView sunriseTV;
     private TextView sunsetTV;
     private TextView humidityTV;
@@ -38,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private ImageView earthImgV;
     private ImageView turn_OnOff;
 
-    double lat;
-    double lng;
+    private double lat;
+    private double lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

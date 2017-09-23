@@ -5,8 +5,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
 import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,7 +20,7 @@ import okhttp3.OkHttpClient;
 
 public class JsonParser_OkHttp extends AsyncTask<String, Void, String>{
 
-    Context context;
+    private Context context;
 
     static String finalSunrise, finalSunset;
     static int finalTemp_min, finalTemp_max;

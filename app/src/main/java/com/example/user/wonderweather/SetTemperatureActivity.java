@@ -7,10 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 
 public class SetTemperatureActivity extends AppCompatActivity {
-    EditText maxTempET, minTempET;
+   private EditText maxTempET;
+   private EditText minTempET;
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+   private SharedPreferences sharedPreferences;
+   private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

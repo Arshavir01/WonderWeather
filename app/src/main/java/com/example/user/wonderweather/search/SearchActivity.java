@@ -36,7 +36,7 @@ public class SearchActivity extends AppCompatActivity {
     private double latSrch, lngSrch;
     private String input;
     static ArrayAdapter adapter;
-    Geocoder geocoder;
+    private Geocoder geocoder;
 
 
     @Override

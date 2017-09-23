@@ -30,16 +30,16 @@ import io.nlopez.smartlocation.SmartLocation;
 
 public class NotificationService extends Service {
 
-    public boolean coldTempflag = false;
-    public boolean flag = false;
+    private boolean coldTempflag = false;
+    private boolean flag = false;
 
-    final String hotNoteTitle = "WonderWeather";
-    final String hotNoteText = "Temperature is too high";
-    final String coldNoteTitle = "WonderWeather";
-    final String coldNoteText = "Temperature is too low";
+    private final String hotNoteTitle = "WonderWeather";
+    private final String hotNoteText = "Temperature is too high";
+    private final String coldNoteTitle = "WonderWeather";
+    private final String coldNoteText = "Temperature is too low";
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

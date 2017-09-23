@@ -20,8 +20,8 @@ import java.util.ArrayList;
  */
 
 public class GooglePlace_autoComplite extends AsyncTask<String, String, String> {
-    Context context;
-    AutoCompleteTextView autoTextView;
+    private Context context;
+    private AutoCompleteTextView autoTextView;
 
     public GooglePlace_autoComplite(Context context, AutoCompleteTextView autoTextView) {
         this.context = context;
