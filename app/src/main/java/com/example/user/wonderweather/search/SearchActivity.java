@@ -1,4 +1,4 @@
-package com.example.user.wonderweather.m_Search;
+package com.example.user.wonderweather.search;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;

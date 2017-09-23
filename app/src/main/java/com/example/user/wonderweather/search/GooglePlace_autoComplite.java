@@ -1,4 +1,4 @@
-package com.example.user.wonderweather.m_Search;
+package com.example.user.wonderweather.search;
 
 import android.content.Context;
 import android.os.AsyncTask;

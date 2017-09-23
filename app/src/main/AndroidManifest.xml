@@ -26,7 +26,7 @@
             android:exported="true"
             android:process="com.example.user.wonderweather" />
 
-        <activity android:name=".m_Search.SearchActivity" />
+        <activity android:name=".search.SearchActivity" />
         <activity android:name=".SetTemperatureActivity" />
         <activity android:name=".MainActivity"></activity>
     </application>
