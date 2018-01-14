@@ -1,87 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background_n"
     tools:context="com.example.user.wonderweather.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="382dp"
-        android:layout_height="560dp"
-        tools:layout_editor_absoluteX="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/detailsButtonId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="460dp"
-            android:layout_marginLeft="150dp"
-            android:background="#00FFFFFF"
-            android:onClick="detailsClick"
-            app:srcCompat="@drawable/notification_icon" />
-
-        <ImageButton
-            android:id="@+id/refreshButtonId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="460dp"
-            android:layout_toRightOf="@+id/detailsButtonId"
-            android:background="#00FFFFFF"
-            android:onClick="refreshClick"
-            app:srcCompat="@drawable/refresh_btn" />
-
-        <ImageButton
-            android:id="@+id/searchButtonId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="460dp"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/refreshButtonId"
-            android:background="#00FFFFFF"
-            android:onClick="searchClick"
-            app:srcCompat="@drawable/search_btn" />
-
-        <ImageButton
-            android:id="@+id/locationButtonId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="460dp"
-            android:layout_marginLeft="80dp"
-            android:background="#00FFFFFF"
-            android:onClick="locationClick"
-            app:srcCompat="@drawable/latlng" />
-
-        <ImageButton
-            android:id="@+id/noteButtonId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="460dp"
-            android:layout_marginLeft="10dp"
-            android:background="#00FFFFFF"
-            android:onClick="noteificationActivityClick"
-            app:srcCompat="@drawable/notification_btn1" />
-
-        <ImageView
-            android:id="@+id/condImgId"
-            android:layout_width="130dp"
-            android:layout_height="90dp"
-            android:layout_marginTop="80dp"
-            android:layout_centerHorizontal="true"/>
-
-        <ImageView
-            android:id="@+id/earthImgId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:src="@drawable/earth__img"
-            android:layout_centerHorizontal="true"/>
-
-     <!--CityName Temperature-->
+        <!--CityName Temperature-->
         <TextView
             android:id="@+id/cityNameId"
             android:layout_width="wrap_content"
@@ -90,7 +23,7 @@
             android:layout_marginTop="10dp"
             android:textSize="30dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="CityName" />
 
         <TextView
@@ -98,33 +31,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="45dp"
             android:textSize="34dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="Temperature" />
 
-     <!--End sityName temperature-->
-
-
         <ImageView
-            android:id="@+id/turn_offId"
-           android:layout_width="wrap_content"
-           android:layout_height="30dp"
-           android:layout_marginTop="535dp"
-           android:layout_marginLeft="158dp"
-           android:src="@drawable/turnoff"/>
+            android:id="@+id/condImgId"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:layout_centerHorizontal="true"/>
 
-    <!--Sunrise Sunset-->
+    </LinearLayout><!--End sityName temperature-->
+
+
+    <ImageView
+        android:id="@+id/earthImgId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/earth__img"/>
+
+    <!--Details layout-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/sunriseId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="170dp"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
 
         <TextView
@@ -136,9 +79,9 @@
             android:layout_below="@+id/sunriseId"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
-     <!--End Sun-Sun-->
+        <!--End Sun-Sun-->
 
         <!--Humidity Pressure-->
         <TextView
@@ -150,7 +93,7 @@
             android:layout_below="@+id/sunsetId"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
 
         <TextView
@@ -162,7 +105,7 @@
             android:layout_below="@+id/humidityId"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
         <!--End Hum Press-->
 
@@ -176,7 +119,7 @@
             android:layout_below="@+id/pressureId"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
 
         <TextView
@@ -188,7 +131,7 @@
             android:layout_below="@+id/maxTempId"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
         <!--End Min Max-->
 
@@ -202,40 +145,126 @@
             android:layout_below="@+id/minTempId"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorWhite"
             android:text="" />
         <!--End wind-->
 
+    </LinearLayout>
 
-     <!--Notification On/Off-->
-        <TextView
-            android:layout_width="wrap_content"
+
+
+    <!--last two line-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageButton
+                android:id="@+id/detailsButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTransparent"
+                android:layout_weight="1"
+                android:onClick="detailsClick"
+                app:srcCompat="@drawable/temp_btn" />
+
+            <ImageButton
+                android:id="@+id/refreshButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/detailsButtonId"
+                android:background="@color/colorTransparent"
+                android:layout_weight="1"
+                android:onClick="refreshClick"
+                app:srcCompat="@drawable/refresh_btn" />
+
+            <ImageButton
+                android:id="@+id/searchButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/refreshButtonId"
+                android:background="@color/colorTransparent"
+                android:layout_weight="1"
+                android:onClick="searchClick"
+                app:srcCompat="@drawable/search_btn" />
+
+            <ImageButton
+                android:id="@+id/locationButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTransparent"
+                android:layout_weight="1"
+                android:onClick="locationClick"
+                app:srcCompat="@drawable/location_btn" />
+
+            <ImageButton
+                android:id="@+id/noteButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTransparent"
+                android:layout_weight="1"
+                android:onClick="noteificationActivityClick"
+                app:srcCompat="@drawable/bell_btn" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notifLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
             android:layout_alignParentBottom="true"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:textColor="#006699"
-            android:onClick="notificationOnClick"
-            android:layout_marginLeft="10dp"
-            android:text="Notification On" />
+            android:background="@color/colorWhite"
+            android:weightSum="3">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:textColor="#006699"
-            android:layout_marginRight="30dp"
-            android:onClick="notificationOffClick"
-            android:text="Notification Off" />
-      <!--End notification-->
+            <!--Notification On/Off-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorCyan"
+                android:onClick="notificationOnClick"
+                android:text="Notification On" />
+
+            <ImageView
+                android:id="@+id/turn_offId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_power_settings_new_black1_24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorCyan"
+                android:onClick="notificationOffClick"
+                android:text="Notification Off" />
+            <!--End notification-->
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 
 
 
-    </RelativeLayout>
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

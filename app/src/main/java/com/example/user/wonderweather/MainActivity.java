@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -23,22 +24,13 @@ import io.nlopez.smartlocation.SmartLocation;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView sunriseTV;
-    private TextView sunsetTV;
-    private TextView humidityTV;
-    private TextView pressureTV;
-    private TextView temp_maxTV;
-    private TextView temp_minTV;
-    private TextView windTV;
-    static TextView nameTV;
-    static TextView tempTV;
+    private TextView sunriseTV, sunsetTV, humidityTV, pressureTV, temp_maxTV, temp_minTV, windTV;
+    static TextView nameTV, tempTV;
     static ImageView condImgV;
     static ProgressDialog pd;
-    private ImageView earthImgV;
-    private ImageView turn_OnOff;
+    private ImageView earthImgV, turn_OnOff;
 
-    private double lat;
-    private double lng;
+    private double lat, lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
         //for notification service image indicator
         if(isMyServiceRunning(NotificationService.class)){
-            turn_OnOff.setImageResource(R.drawable.turnon);
+            //turn_OnOff.setImageResource(R.drawable.ic_power_settings_new_black_24dp);
+            turn_OnOff.setBackgroundColor(Color.parseColor("#64DD17"));
         }
 
     }
@@ -124,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
             //Service started if Location provider is ON
             Intent intent = new Intent(this, NotificationService.class);
             startService(intent);
-            turn_OnOff.setImageResource(R.drawable.turnon);
+           // turn_OnOff.setImageResource(R.drawable.ic_power_settings_new_black_24dp);
+            turn_OnOff.setBackgroundColor(Color.parseColor("#64DD17"));
 
         }
     }
@@ -133,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NotificationService.class);
         stopService(intent);
 
-        turn_OnOff.setImageResource(R.drawable.turnoff);
+      //  turn_OnOff.setImageResource(R.drawable.ic_power_settings_new_black1_24dp);
+        turn_OnOff.setBackgroundColor(Color.parseColor("#00FFFFFF"));
 
         //clear data.xml file for lower then 40°C notification
         SharedPreferences preferences = getSharedPreferences("spData", Context.MODE_PRIVATE);

@@ -53,7 +53,7 @@ public class NotificationService extends Service {
                     try {
                         for(;;){
 
-                            // send request every 5 second
+                            // send request every 2 minutes
                             wait(5000);
                             getLocation();
                         }
@@ -150,10 +150,10 @@ public class NotificationService extends Service {
                                 writeInSharedPref();
                             }
                             //little change of temperature (39°C then 40°C then 41°C ) app doesn't send notification
-                            if(finalTemp <= maxTemp_int-5){
+                           /* if(finalTemp <= maxTemp_int-5){
                                 flag=true;
                                 deleteFronSharedPref();
-                            }
+                            }*/
 
                             //---------------------------------------------
                             //set desired minimum temperature for notification
@@ -170,10 +170,10 @@ public class NotificationService extends Service {
                                 writeInSharedPrefFor0();
                             }
                             //little change of temperature (0°C then 1°C then 0°C ) app doesn't send notification
-                            if(finalTemp >= minTemp_int+5){
+                            /*if(finalTemp >= minTemp_int+5){
                                 coldTempflag = true;
                                 deleteFronSharedPrefFor0();
-                            }
+                            }*/
 
                         } catch (JSONException e1) {
                             e1.printStackTrace();
@@ -197,7 +197,7 @@ public class NotificationService extends Service {
                 .setContentText(text)
                 .setAutoCancel(true)
                 .setSound(soundUri)
-                .setSmallIcon(R.drawable.notification_icon);
+                .setSmallIcon(R.drawable.temp_btn);
 
         Intent intent = new Intent(this,MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);;
@@ -220,12 +220,12 @@ public class NotificationService extends Service {
 
     }
     //Delete in SharedPreferenses for 40°C
-    public void deleteFronSharedPref(){
+    /*public void deleteFronSharedPref(){
         sharedPreferences = getSharedPreferences("spData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.commit();
-    }
+    }*/
 
     //Write in SharedPreferenses for 0°C
     public void writeInSharedPrefFor0(){
@@ -239,12 +239,12 @@ public class NotificationService extends Service {
     }
 
    //Delete in SharedPreferenses for 0°C
-    public void deleteFronSharedPrefFor0(){
+  /*  public void deleteFronSharedPrefFor0(){
         sharedPreferences = getSharedPreferences("Data", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.commit();
-    }
+    }*/
 
     //for Checking network
     private boolean isNetworkAvailable() {

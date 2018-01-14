@@ -1,41 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/search_background"
-    tools:context="com.example.user.wonderweather.m_Search.SearchActivity">
-
-
-
-    <RelativeLayout
-        android:layout_width="368dp"
-        android:layout_height="551dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+    tools:context="com.example.user.wonderweather.search.SearchActivity">
 
         <AutoCompleteTextView
             android:id="@+id/searchEditText"
-            android:layout_width="340dp"
+            android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="15dp"
             android:inputType="textMultiLine"
             android:maxLines="2"
-            android:textColor="#212121"
+            android:textColor="@color/colorPrimary"
             android:hint=" Search..."
-            android:textColorHint="#616161"
-            android:paddingStart="35dp"
-            android:paddingEnd="40dp"/>
+            android:textColorHint="@color/colorAccent"
+            android:paddingLeft="35dp"
+            android:paddingRight="40dp" />
 
         <Button
-            android:layout_width="340dp"
+            android:id="@+id/searchBtnId"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
             android:text="Search"
             android:textColor="#00838F"
             android:background="@drawable/btn_search_back"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:onClick="searchBtnClick"
             android:layout_below="@+id/searchEditText"/>
 
@@ -43,77 +38,132 @@
             android:id="@+id/CloseButtonId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="320dp"
-            android:layout_marginTop="35dp"
-            android:background="#00FFFFFF"
+            android:layout_alignTop="@+id/searchEditText"
+            android:layout_alignBottom="@+id/searchEditText"
+            android:layout_alignRight="@+id/searchEditText"
+            android:background="@color/colorTransparent"
             android:onClick="closeClick"/>
+
 
 
         <ImageButton
             android:id="@+id/micButtonId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_marginLeft="10dp"
-            android:background="#00FFFFFF"
+            android:layout_alignTop="@+id/searchEditText"
+            android:layout_alignBottom="@+id/searchEditText"
+            android:layout_alignLeft="@+id/searchEditText"
+            android:background="@color/colorTransparent"
             android:onClick="micBtnClick"
             app:srcCompat="@drawable/mic2" />
 
-        <ImageView
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="400dp"
-            android:src="@drawable/search_for_statues"/>
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:background="#00FFFFFF"
-            android:onClick="tajmahalButton"
-            app:srcCompat="@drawable/taj_mahal1" />
-
-        <ImageButton
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="310dp"
-            android:background="#00FFFFFF"
-            android:onClick="locationClick"
-            app:srcCompat="@drawable/search_latlng" />
 
         <TextView
             android:id="@+id/localityId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#616161"
+            android:textColor="@color/colorAccent"
             android:textSize="18dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="130dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/searchBtnId"
             android:text=""/>
 
-        <TextView
-            android:id="@+id/latitudeId"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#616161"
-            android:textSize="13dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="480dp"
-            android:text=""/>
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/longitudeId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#616161"
-            android:textSize="13dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="510dp"
-            android:text=""/>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPurple"
+                            android:textStyle="bold|italic"
+                            android:textSize="25dp"
+                            android:text="Cities, "/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorCyan"
+                            android:textStyle="bold|italic"
+                            android:textSize="25dp"
+                            android:text="Statues, "/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold|italic"
+                            android:textSize="25dp"
+                            android:text="Streets"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/latitudeId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="13dp"
+                            android:text=""/>
+
+                        <TextView
+                            android:id="@+id/longitudeId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="13dp"
+                            android:layout_marginTop="5dp"
+                            android:text=""/>
+
+                </LinearLayout>
 
 
-    </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layoutTajmahal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+                        <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:background="@color/colorTransparent"
+                            android:onClick="tajmahalButton"
+                            app:srcCompat="@drawable/taj_mahal1" />
+
+                        <ImageButton
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            android:layout_marginRight="2dp"
+                            android:background="@color/colorTransparent"
+                            android:onClick="locationClick"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:srcCompat="@drawable/search_latlng" />
+
+                </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

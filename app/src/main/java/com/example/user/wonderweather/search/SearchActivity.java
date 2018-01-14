@@ -22,7 +22,6 @@ import com.example.user.wonderweather.JsonParser_OkHttp;
 import com.example.user.wonderweather.R;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -31,12 +30,8 @@ public class SearchActivity extends AppCompatActivity {
     private AutoCompleteTextView searchET;
     private TextView localityTV, latTV,lngTV;
     private ImageButton closeBtn;
-    private String locality;
-    private String searchInput;
-    private double latSrch, lngSrch;
     private String input;
     static ArrayAdapter adapter;
-    private Geocoder geocoder;
 
 
     @Override
@@ -97,12 +92,12 @@ public class SearchActivity extends AppCompatActivity {
     //Search Button
     public void searchBtnClick(View view) {
 
-            geocoder = new Geocoder(this);
+           Geocoder geocoder = new Geocoder(this);
             List<Address> listAddress = null;
-            searchInput = searchET.getText().toString();
+            String searchInput_s = searchET.getText().toString();
 
             try {
-                listAddress = geocoder.getFromLocationName(searchInput, 1);
+                listAddress = geocoder.getFromLocationName(searchInput_s, 1);
 
 
             } catch (IOException e) {
@@ -117,29 +112,24 @@ public class SearchActivity extends AppCompatActivity {
 
                 Address add = listAddress.get(0);
 
-                latSrch = add.getLatitude();
-                String lat_str = new DecimalFormat("##.###").format(latSrch);  // take 3 digites after point
-                double lat_dou = Double.parseDouble(lat_str);
+                double latSrch_s = add.getLatitude();
+                double lngSrch_s = add.getLongitude();
 
-                lngSrch = add.getLongitude();
-                String lng_str = new DecimalFormat("##.###").format(lngSrch); // take 3 digites after point
-                double lng_dou = Double.parseDouble(lng_str);
-
-                locality = add.getLocality();
+                String locality_s = add.getLocality();
 
                 JsonParser_OkHttp parser_okHttp = new JsonParser_OkHttp(getApplicationContext());
-                parser_okHttp.execute("http://api.openweathermap.org/data/2.5/weather?lat="+lat_dou+"&lon="+lng_dou+"&APPID=07c2cec609851b780bbb495834301cf7");
+                parser_okHttp.execute("http://api.openweathermap.org/data/2.5/weather?lat="+latSrch_s+"&lon="+lngSrch_s+"&APPID=07c2cec609851b780bbb495834301cf7");
 
-                Toast.makeText(this, locality, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, locality_s, Toast.LENGTH_LONG).show();
                 finish();
             }
 
     }
 
 
-    //Button Matenadaran
+    //Button Taj Mahal
     public void tajmahalButton(View view) {
-        searchET.setText("Taj Mahal");
+        searchET.setText(getResources().getString(R.string.taj_name));
         localityTV.setText("");
         latTV.setText("");
         lngTV.setText("");
@@ -148,17 +138,17 @@ public class SearchActivity extends AppCompatActivity {
     // Get latitude and longitude
     public void locationClick(View view) {
         //Search
-        searchInput = searchET.getText().toString();
+        String searchInput_l = searchET.getText().toString();
 
         latTV.setText("");
         lngTV.setText("");
         localityTV.setText("");
 
-        geocoder = new Geocoder(this);
+        Geocoder geocoder = new Geocoder(this);
         List<Address> listAddress = null;
 
         try {
-            listAddress = geocoder.getFromLocationName(searchInput, 1);
+            listAddress = geocoder.getFromLocationName(searchInput_l, 1);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -174,17 +164,16 @@ public class SearchActivity extends AppCompatActivity {
 
         }else{
             Address add  = listAddress.get(0);
-            latSrch = add.getLatitude();
-            String lat_str = new DecimalFormat("##.####").format(latSrch);
 
-            lngSrch = add.getLongitude();
-            String lng_str = new DecimalFormat("##.####").format(lngSrch);
+            double latSrch_l = add.getLatitude();
+            double lngSrch_l = add.getLongitude();
 
-            locality = add.getLocality();
 
-            localityTV.setText(locality);
-            latTV.setText("Lat:  "+String.valueOf(lat_str));
-            lngTV.setText("Lng:  "+String.valueOf(lng_str));
+            String locality_l = add.getLocality();
+
+            localityTV.setText(locality_l);
+            latTV.setText("Lat:  "+String.valueOf(latSrch_l));
+            lngTV.setText("Lng:  "+String.valueOf(lngSrch_l));
 
         }
 
@@ -208,9 +197,7 @@ public class SearchActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
        if(requestCode == 0 && data != null){
            ArrayList<String> list = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-           if(list.isEmpty()){
-               return;
-           }else {
+           if(!list.isEmpty()){
                searchET.setText(list.get(0));
            }
        }
